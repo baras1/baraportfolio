@@ -1,4 +1,5 @@
+// next.config.js
 module.exports = {
-    output: 'standalone',
+    reactStrictMode: true,
+    // Any other Next.js configuration options
   };
-  
