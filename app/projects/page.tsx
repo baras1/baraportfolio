@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Projects() {
   return (
@@ -6,7 +6,7 @@ export default function Projects() {
 
       <main className="flex-1 flex flex-col items-center justify-center text-center">
         <h1 className="text-4xl font-bold mt-6">Projects</h1>
-        <p className="text-xl mt-4">Here are some of the projects I've worked on:</p>
+        <p className="text-xl mt-4">Here are some of the projects I&apos;ve worked on:</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
           <div className="bg-white p-4 shadow-md">
