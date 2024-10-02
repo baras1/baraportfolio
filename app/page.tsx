@@ -8,10 +8,6 @@ export default function Home() {
         <h1 className="text-4xl font-bold mt-6">Hello, I'm Bara</h1>
         <p className="text-xl mt-4">A software engineer with a passion for building machine learning models</p>
       </main>
-      
-      <footer className="py-4">
-        <p>© 2024 Bara Portfolio</p>
-      </footer>
     </div>
   );
 }
