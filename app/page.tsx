@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
             <div className="mb-6 md:mb-0 md:mr-6">
               <Image
                 src="/UW_formula_pp.jpg" // replace with your actual image path
-                alt="Bara's Picture"
+                alt="Bara&apos;s Picture"
                 width={200}
                 height={200}
                 className="rounded-full shadow-md"
@@ -19,7 +19,7 @@ export default function Home() {
             <div className="text-left">
               <h1 className="text-4xl font-bold mb-4">Hi, my name is Bara</h1>
               <p className="text-xl">
-                I'm a computer engineer interested in machine learning, artificial intelligence, and building innovative solutions using modern technologies.
+                I&apos;m a computer engineer interested in machine learning, artificial intelligence, and building innovative solutions using modern technologies.
               </p>
             </div>
           </div>
@@ -27,7 +27,7 @@ export default function Home() {
 
         {/* Professional Work and Projects Section */}
         <section className="mt-12">
-          <h2 className="text-3xl font-bold mb-6">Welcome to Bara's Portfolio</h2>
+          <h2 className="text-3xl font-bold mb-6">Welcome to Bara&apos;s Portfolio</h2>
           <p className="text-xl mb-8">Professional Projects, Experience, and More</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -58,7 +58,7 @@ export default function Home() {
               />
               <h3 className="text-2xl font-bold mb-4">Projects</h3>
               <p className="text-lg mb-4">
-                Discover the projects I've worked on, from personal to collaborative initiatives.
+                Discover the projects I&apos;ve worked on, from personal to collaborative initiatives.
               </p>
               <a href="/projects" className="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">
                 Explore Projects

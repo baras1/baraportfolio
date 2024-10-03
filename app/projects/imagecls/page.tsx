@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function ImageClassification() {
-  const [selectedDataset, setSelectedDataset] = useState('');
-  const [selectedModel, setSelectedModel] = useState('');
+  const [selectedDataset, setSelectedDataset] = useState("");
+  const [selectedModel, setSelectedModel] = useState("");
   const [image, setImage] = useState<File | null>(null);
-  const [prediction, setPrediction] = useState('');
+  const [prediction, setPrediction] = useState("");
 
   // Handler functions
   const handleDatasetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -25,7 +25,7 @@ export default function ImageClassification() {
 
   const handleClassify = async () => {
     if (image && selectedModel && selectedDataset) {
-      setPrediction('Predicted Label: Butterfly Monarch'); // Mock prediction for now
+      setPrediction("Predicted Label: Butterfly Monarch"); // Mock prediction for now
     }
   };
 
@@ -46,13 +46,13 @@ export default function ImageClassification() {
           <option value="humanemotion">Human Emotion</option>
         </select>
 
-        {selectedDataset === 'butterflies' && (
+        {selectedDataset === "butterflies" && (
           <p className="text-gray-700">Recognizes species like Monarch, Swallowtail, and Painted Lady.</p>
         )}
-        {selectedDataset === 'catdog' && (
-          <p className="text-gray-700">Recognizes if it's a cat or a dog.</p>
+        {selectedDataset === "catdog" && (
+          <p className="text-gray-700">Recognizes if it&apos;s a cat or a dog.</p>
         )}
-        {selectedDataset === 'humanemotion' && (
+        {selectedDataset === "humanemotion" && (
           <p className="text-gray-700">Recognizes emotions like happy, sad, and angry.</p>
         )}
 

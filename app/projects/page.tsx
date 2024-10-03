@@ -5,7 +5,7 @@ export default function Projects() {
   return (
     <div className="min-h-screen flex flex-col items-center bg-gray-100 text-gray-900">
       <main className="flex-1 w-full max-w-4xl mt-16 px-4 text-center">
-        <h1 className="text-4xl font-bold mb-8">Projects I've Worked On</h1>
+        <h1 className="text-4xl font-bold mb-8">Projects I&apos;ve Worked On</h1>
         <p className="text-lg mb-8">*Click the project to use the demo*</p>
 
         {/* Centered Project Card */}

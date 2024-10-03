@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from 'react';
+import { useState } from "react";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
-    email: '',
-    subject: '',
-    message: ''
+    email: "",
+    subject: "",
+    message: ""
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -16,13 +16,13 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form data submitted:', formData);
+    console.log("Form data submitted:", formData);
   };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-[#1A1A2E] text-white">
       <main className="flex-1 w-full max-w-3xl mt-16 px-4 text-center">
-        <h1 className="text-5xl font-bold mb-4">Say hello. Let's work together.</h1>
+        <h1 className="text-5xl font-bold mb-4">Say hello. Let&apos;s work together.</h1>
         <p className="mb-8 text-lg">Find me on social media, or send me a message with the form below!</p>
         <div className="flex justify-center space-x-4 mb-8">
           <a href="https://www.whatsapp.com">

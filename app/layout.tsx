@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Bara's Professional Portfolio",
-  description: "Welcome to Bara's professional portfolio",
+  title: "Bara&apos;s Professional Portfolio",
+  description: "Welcome to Bara&apos;s professional portfolio",
 };
 
 export default function RootLayout({
@@ -65,7 +65,7 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
 
           <footer className="py-4 bg-gray-800 text-white text-center">
-            <p>© 2024 Bara's Portfolio</p>
+            <p>© 2024 Bara&apos;s Portfolio</p>
           </footer>
         </div>
       </body>
