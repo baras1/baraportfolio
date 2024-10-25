@@ -14,11 +14,9 @@ export default function ImageClassificationProgress() {
           </p>
         </section>
 
-        {/* Placeholder for an image */}
+        {/* Insert Image */}
         <div className="mb-8">
-          <div className="w-full bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500">
-            <p>Insert Image Here (e.g., Model Diagram or Training Results)</p>
-          </div>
+          <img src="imagecls1.png" alt="Model Diagram or Training Results" className="w-full rounded-lg"/>
         </div>
 
         {/* Progress Section */}
@@ -28,9 +26,41 @@ export default function ImageClassificationProgress() {
             Choosing the right dataset and model architecture is critical to the success of any machine learning project. For this project, I am working with three datasets: butterfly species classification, cat vs. dog classification, and human emotion detection. As for models, I’ve experimented with TensorFlow, PyTorch, and my own implementations of MLPs and CNNs using NumPy. The model architecture is still being optimized for each dataset.
           </p>
 
-          {/* Placeholder for another image */}
-          <div className="w-full bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500 my-6">
-            <p>Insert Image Here (e.g., Model Comparison Graph)</p>
+          {/* Dataset Links */}
+          <div className="my-6">
+            <h3 className="text-2xl font-semibold mb-2">Datasets</h3>
+            <ul className="list-disc list-inside text-lg">
+              <li>
+                <a
+                  href="https://www.kaggle.com/datasets/phucthaiv02/butterfly-image-classification"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Butterfly Species Dataset
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.kaggle.com/datasets/mahmoudnoor/high-resolution-catdogbird-image-dataset-13000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Cat, Dog, and Bird Dataset
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.kaggle.com/datasets/ananthu017/emotion-detection-fer"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:underline"
+                >
+                  Human Emotion Dataset
+                </a>
+              </li>
+            </ul>
           </div>
         </section>
 
@@ -42,17 +72,17 @@ export default function ImageClassificationProgress() {
           </p>
         </section>
 
-        {/* Placeholder for further progress */}
+        {/* Insert Image */}
+        <div className="w-full rounded-lg my-6">
+          <img src="catdogpred.png" alt="Prediction Results Table" className="w-full rounded-lg"/>
+        </div>
+
+        {/* Current Results Section */}
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">Current Results</h2>
           <p className="text-lg leading-relaxed">
             The models have shown promising results so far, particularly in the butterfly species dataset. While the cat vs. dog and human emotion models are performing reasonably well, there is still room for improvement, especially in edge cases where the images are not clear. I&aposm also working on improving the interpretability of the models, possibly using LIME or SHAP to explain their predictions.
           </p>
-
-          {/* Placeholder for another image */}
-          <div className="w-full bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500 my-6">
-            <p>Insert Image Here (e.g., Prediction Results Table)</p>
-          </div>
         </section>
 
         {/* Next Steps */}
