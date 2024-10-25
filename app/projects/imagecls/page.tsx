@@ -1,124 +1,75 @@
 "use client";
 
-import { useState } from "react";
-
-export default function ImageClassification() {
-  const [selectedDataset, setSelectedDataset] = useState("");
-  const [selectedModel, setSelectedModel] = useState("");
-  const [image, setImage] = useState<File | null>(null);
-  const [prediction, setPrediction] = useState("");
-
-  // Handler functions
-  const handleDatasetChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedDataset(e.target.value);
-  };
-
-  const handleModelChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectedModel(e.target.value);
-  };
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files) {
-      setImage(e.target.files[0]);
-    }
-  };
-
-  const handleClassify = async () => {
-    if (image && selectedModel && selectedDataset) {
-      setPrediction("Predicted Label: Butterfly Monarch"); // Mock prediction for now
-    }
-  };
-
+export default function ImageClassificationProgress() {
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 text-gray-900 py-8 px-4">
-      {/* Section 1: Demo */}
-      <h1 className="text-4xl font-bold mb-6">Image Classification Demo</h1>
+    <div className="min-h-screen flex flex-col items-center bg-white text-gray-900 py-12 px-4">
+      {/* Article Header */}
+      <article className="w-full max-w-3xl">
+        <h1 className="text-5xl font-bold mb-6 text-center">Building an Image Classification Model: Progress Report</h1>
 
-      <div className="w-full max-w-4xl p-6 bg-white rounded-lg shadow-md mb-12">
-        <h2 className="text-2xl font-semibold mb-4">1. Select Dataset</h2>
-        <select
-          className="w-full p-3 border border-gray-300 rounded-md mb-6"
-          onChange={handleDatasetChange}
-        >
-          <option value="">-- Select a dataset --</option>
-          <option value="butterflies">Butterfly Species</option>
-          <option value="catdog">Cat or Dog?</option>
-          <option value="humanemotion">Human Emotion</option>
-        </select>
+        {/* Introduction */}
+        <section className="mb-8">
+          <p className="text-xl leading-relaxed">
+            Image classification is an exciting and challenging task in machine learning. My current project involves creating a model that can identify different objects in images, with a particular focus on butterflies, cats vs. dogs, and human emotions. In this article, I will share the progress I’ve made so far, my challenges, and the next steps on this journey.
+          </p>
+        </section>
 
-        {selectedDataset === "butterflies" && (
-          <p className="text-gray-700">Recognizes species like Monarch, Swallowtail, and Painted Lady.</p>
-        )}
-        {selectedDataset === "catdog" && (
-          <p className="text-gray-700">Recognizes if it&apos;s a cat or a dog.</p>
-        )}
-        {selectedDataset === "humanemotion" && (
-          <p className="text-gray-700">Recognizes emotions like happy, sad, and angry.</p>
-        )}
-
-        <h2 className="text-2xl font-semibold mt-8 mb-4">2. Select Model</h2>
-        <select
-          className="w-full p-3 border border-gray-300 rounded-md mb-6"
-          onChange={handleModelChange}
-        >
-          <option value="">-- Select a model --</option>
-          <option value="tensorflow">TensorFlow</option>
-          <option value="pytorch">PyTorch</option>
-          <option value="mlp">Numpy MLP</option>
-          <option value="cnn">Numpy CNN</option>
-        </select>
-
-        <h2 className="text-2xl font-semibold mt-8 mb-4">3. Upload Image</h2>
-        <input type="file" accept="image/*" onChange={handleImageChange} className="mb-6" />
-
-        <button
-          className="w-full p-3 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          onClick={handleClassify}
-        >
-          Classify
-        </button>
-
-        {prediction && (
-          <div className="mt-6 p-4 bg-gray-100 text-center rounded-lg">
-            <p className="text-lg font-semibold">{prediction}</p>
+        {/* Placeholder for an image */}
+        <div className="mb-8">
+          <div className="w-full bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500">
+            <p>Insert Image Here (e.g., Model Diagram or Training Results)</p>
           </div>
-        )}
-      </div>
-
-      {/* Section 2: Code Section */}
-      <div className="w-full max-w-4xl p-6 bg-white rounded-lg shadow-md mb-12">
-        <h2 className="text-2xl font-semibold mb-4">Code Implementation</h2>
-        <div className="flex justify-around mb-4">
-          <button className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400">TensorFlow</button>
-          <button className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400">PyTorch</button>
-          <button className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400">Numpy MLP</button>
-          <button className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400">Numpy CNN</button>
         </div>
 
-        <pre className="bg-gray-100 p-4 rounded-lg overflow-auto max-h-60">
-          <code>{`# TensorFlow model code here`}</code>
-        </pre>
+        {/* Progress Section */}
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold mb-4">Dataset and Model Selection</h2>
+          <p className="text-lg leading-relaxed">
+            Choosing the right dataset and model architecture is critical to the success of any machine learning project. For this project, I am working with three datasets: butterfly species classification, cat vs. dog classification, and human emotion detection. As for models, I’ve experimented with TensorFlow, PyTorch, and my own implementations of MLPs and CNNs using NumPy. The model architecture is still being optimized for each dataset.
+          </p>
 
-        <a
-          href="https://github.com/your-github-repo"
-          className="mt-4 block text-blue-600 underline text-center"
-        >
-          View full project on GitHub
-        </a>
-      </div>
+          {/* Placeholder for another image */}
+          <div className="w-full bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500 my-6">
+            <p>Insert Image Here (e.g., Model Comparison Graph)</p>
+          </div>
+        </section>
 
-      {/* Section 3: Mathematics Section */}
-      <div className="w-full max-w-4xl p-6 bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold mb-4">Mathematics of Models</h2>
-        <div className="flex justify-around mb-4">
-          <button className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400">MLP</button>
-          <button className="px-4 py-2 bg-gray-300 text-gray-900 rounded hover:bg-gray-400">CNN</button>
-        </div>
+        {/* Challenges Section */}
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold mb-4">Challenges Faced</h2>
+          <p className="text-lg leading-relaxed">
+            One of the biggest challenges has been finding the balance between model complexity and computational efficiency. My initial models were too complex and took too long to train, even on small datasets. I have since simplified the models but am still working on achieving a balance that provides accurate predictions without excessive training time. Another challenge has been fine-tuning the models to handle real-world noise in the datasets.
+          </p>
+        </section>
 
-        <pre className="bg-gray-100 p-4 rounded-lg overflow-auto max-h-60">
-          <code>{`# MLP mathematics in LaTeX`}</code>
-        </pre>
-      </div>
+        {/* Placeholder for further progress */}
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold mb-4">Current Results</h2>
+          <p className="text-lg leading-relaxed">
+            The models have shown promising results so far, particularly in the butterfly species dataset. While the cat vs. dog and human emotion models are performing reasonably well, there is still room for improvement, especially in edge cases where the images are not clear. I'm also working on improving the interpretability of the models, possibly using LIME or SHAP to explain their predictions.
+          </p>
+
+          {/* Placeholder for another image */}
+          <div className="w-full bg-gray-200 h-64 rounded-lg flex items-center justify-center text-gray-500 my-6">
+            <p>Insert Image Here (e.g., Prediction Results Table)</p>
+          </div>
+        </section>
+
+        {/* Next Steps */}
+        <section className="mb-8">
+          <h2 className="text-3xl font-semibold mb-4">Next Steps</h2>
+          <p className="text-lg leading-relaxed">
+            Going forward, I plan to further optimize the model by experimenting with more advanced architectures like self-attention transformers. Additionally, I'll be incorporating more diverse datasets to make the models more robust in real-world applications. Stay tuned for updates!
+          </p>
+        </section>
+
+        {/* Conclusion */}
+        <section className="mb-12">
+          <p className="text-lg leading-relaxed italic">
+            Note: This is an ongoing project, and the article will be updated as I make further progress. Check back soon for new developments!
+          </p>
+        </section>
+      </article>
     </div>
   );
 }
