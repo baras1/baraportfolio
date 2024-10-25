@@ -16,7 +16,7 @@ export default function ImageClassificationProgress() {
 
         {/* Insert Image */}
         <div className="mb-8">
-          <img src="imagecls1.png" alt="Model Diagram or Training Results" className="w-full rounded-lg"/>
+          <img src="/imagecls1.png" alt="Model Diagram or Training Results" className="w-full rounded-lg"/>
         </div>
 
         {/* Progress Section */}
@@ -74,8 +74,8 @@ export default function ImageClassificationProgress() {
 
         {/* Insert Image */}
         <div className="w-full rounded-lg my-6">
-          <img src="catdogpred.png" alt="Prediction Results Table" className="w-full rounded-lg"/>
-          <img src="butterflypred.jpg" alt="Prediction Results Table" className="w-full rounded-lg"/>
+          <img src="/catdogpred.png" alt="Prediction Results Table" className="w-full rounded-lg"/>
+          <img src="/butterflypred.jpg" alt="Prediction Results Table" className="w-full rounded-lg"/>
         </div>
 
         {/* Current Results Section */}
