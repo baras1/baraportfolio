@@ -44,7 +44,7 @@ export default function Home() {
                 Explore my work experiences, contributions, and insights gained from working in the field.
               </p>
               <a href="/experience" className="inline-block bg-black text-white px-6 py-2 rounded-full hover:bg-gray-800">
-                View Experience
+                View Experiences
               </a>
             </div>
 

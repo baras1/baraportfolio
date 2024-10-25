@@ -68,7 +68,7 @@ export default function ImageClassificationProgress() {
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">Challenges Faced</h2>
           <p className="text-lg leading-relaxed">
-            I initially struggled with long training times due to the model's complexity. To combat this, I rented a GPU from services like Paperspace and DigitalOcean. This decision significantly reduced training times by a factor of 10, allowing me to get results much faster. Additionally, deploying the models using FastAPI has proven to be a good step forward in making the models accessible for testing.
+            I initially struggled with long training times due to the model&apos;s complexity. To combat this, I rented a GPU from services like Paperspace and DigitalOcean. This decision significantly reduced training times by a factor of 10, allowing me to get results much faster. Additionally, deploying the models using FastAPI has proven to be a good step forward in making the models accessible for testing.
           </p>
         </section>
 
@@ -82,7 +82,7 @@ export default function ImageClassificationProgress() {
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">Current Results</h2>
           <p className="text-lg leading-relaxed">
-            Currently, the models achieve about 60-70% accuracy across all datasets. The images included show examples of these results. However, training time remains an issue, likely due to an excess of filters in the convolutional layers causing potential overfitting. Finding the right balance is an ongoing challenge. Although I’ve searched extensively for good datasets, I'm still exploring options for additional resources.
+            Currently, the models achieve about 60-70% accuracy across all datasets. The images included show examples of these results. However, training time remains an issue, likely due to an excess of filters in the convolutional layers causing potential overfitting. Finding the right balance is an ongoing challenge. Although I&apos;ve searched extensively for good datasets, I'm still exploring options for additional resources.
           </p>
         </section>
 

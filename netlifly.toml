@@ -7,3 +7,6 @@
   to = "/static/:splat"
   status = 301
   force = true
+
+[[plugins]]
+package = "@netlify/plugin-nextjs"
