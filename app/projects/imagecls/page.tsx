@@ -97,7 +97,7 @@ export default function ImageClassificationProgress() {
         {/* CNN Code Section */}
         <section className="mb-12">
           <h2 className="text-3xl font-semibold mb-4">CNN Code Implementation</h2>
-          <pre className="bg-gray-100 p-4 rounded-lg overflow-auto max-h-60">
+          <pre className="bg-gray-100 p-4 rounded-lg overflow-auto max-h-200">
             <code>
 {`import torch
 import torch.nn as nn
@@ -119,14 +119,16 @@ class CNNModel(nn.Module):
         self.num_classes = num_classes
 
     def forward(self, x):
-        if x.dim() == 3:  
-            x = x.unsqueeze(0)
+        # Ensure x has a batch dimension
+        if x.dim() == 3:  # Check if the input is missing the batch dimension
+            x = x.unsqueeze(0)  # Add batch dimension at the beginning
         x = self.pool1(self.relu(self.conv1(x)))
         x = self.pool1(self.relu(self.conv2(x)))
         x = self.pool2(self.relu(self.conv3(x)))
+        # Dynamically initialize fully connected layers based on the input shape
         if self.fc1 is None:
             self._set_fc_layers(x)
-        x = x.view(x.size(0), -1)
+        x = x.view(x.size(0), -1)  # Flatten the tensor for the fully connected layer
         x = self.relu(self.fc1(x))
         x = self.fc2(x)
         return x
@@ -135,6 +137,86 @@ class CNNModel(nn.Module):
         num_features = x.size(1) * x.size(2) * x.size(3)
         self.fc1 = nn.Linear(num_features, 2048).to(x.device)
         self.fc2 = nn.Linear(2048, self.num_classes).to(x.device)
+class CNNClassifier:
+    def __init__(self, num_classes, lr=0.001, batch_size=32, num_epochs=7):
+        self.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        self.model = CNNModel(num_classes=num_classes).to(self.device)
+        self.criterion = nn.CrossEntropyLoss()
+        self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
+        self.batch_size = batch_size
+        self.num_epochs = num_epochs
+
+    def fit(self, X, y=None):
+        if isinstance(X, torch.utils.data.DataLoader):
+            train_loader = X
+        else:
+            train_dataset = torch.utils.data.TensorDataset(X, y)
+            train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=self.batch_size, shuffle=True)
+        
+        self.model.train()
+        if self.num_epochs == -1:
+            epoch = 0
+            recent_loss = 1.0
+            while recent_loss > 0.1:
+                running_loss = 0.0
+                for images, labels in train_loader:
+                    self.fit_batch(images, labels)
+                    running_loss += self.criterion(self.model(images), labels).item()
+                recent_loss = running_loss/len(train_loader)
+                print(f"Epoch {epoch+1}, Loss: {recent_loss:.4f}")
+                epoch += 1
+        else:
+            for epoch in range(self.num_epochs):
+                running_loss = 0.0
+                for images, labels in train_loader:
+                    self.fit_batch(images, labels)
+                    running_loss += self.criterion(self.model(images), labels).item()
+                print(f"Epoch {epoch+1}, Loss: {running_loss/len(train_loader):.4f}")
+
+    def fit_batch(self, images, labels):
+        images, labels = images.to(self.device), labels.to(self.device)
+        self.optimizer.zero_grad()
+        outputs = self.model(images)
+        loss = self.criterion(outputs, labels)
+        loss.backward()
+        self.optimizer.step()
+
+    def predict(self, X):
+        self.model.eval()
+        all_preds = []
+        with torch.no_grad():
+            for images in X:
+                images = images.to(self.device)
+                outputs = self.model(images)
+                _, preds = torch.max(outputs, 1)
+                all_preds.append(preds)
+        return torch.cat(all_preds).cpu()
+
+    def predict_with_visualization(self, X, y=None, num_samples=10):
+        self.model.eval()
+        indices = random.sample(range(X.size(0)), num_samples)
+        selected_images = X[indices].to(self.device)
+
+        with torch.no_grad():
+            outputs = self.model(selected_images)
+            _, preds = torch.max(outputs, 1)
+
+        preds = preds.cpu().numpy()
+        selected_images = selected_images.cpu()
+        actual_labels = y[indices].cpu().numpy() if y is not None else None
+
+        fig, axes = plt.subplots(2, 5, figsize=(15, 6))
+        axes = axes.flatten()
+        for i in range(num_samples):
+            image = selected_images[i].permute(1, 2, 0).numpy()
+            axes[i].imshow(image)
+            if actual_labels is not None:
+                axes[i].set_title(f"Pred: {preds[i]}, Actual: {actual_labels[i]}")
+            else:
+                axes[i].set_title(f"Pred: {preds[i]}")
+            axes[i].axis('off')
+        plt.tight_layout()
+        plt.show()
 `}
             </code>
           </pre>
