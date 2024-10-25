@@ -68,7 +68,7 @@ export default function ImageClassificationProgress() {
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">Challenges Faced</h2>
           <p className="text-lg leading-relaxed">
-            One of the biggest challenges has been finding the balance between model complexity and computational efficiency. My initial models were too complex and took too long to train, even on small datasets. I have since simplified the models but am still working on achieving a balance that provides accurate predictions without excessive training time. Another challenge has been fine-tuning the models to handle real-world noise in the datasets.
+            I initially struggled with long training times due to the model's complexity. To combat this, I rented a GPU from services like Paperspace and DigitalOcean. This decision significantly reduced training times by a factor of 10, allowing me to get results much faster. Additionally, deploying the models using FastAPI has proven to be a good step forward in making the models accessible for testing.
           </p>
         </section>
 
@@ -82,23 +82,62 @@ export default function ImageClassificationProgress() {
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">Current Results</h2>
           <p className="text-lg leading-relaxed">
-            The models have shown promising results so far, particularly in the butterfly species dataset. While the cat vs. dog and human emotion models are performing reasonably well, there is still room for improvement, especially in edge cases where the images are not clear. I&aposm also working on improving the interpretability of the models, possibly using LIME or SHAP to explain their predictions.
+            Currently, the models achieve about 60-70% accuracy across all datasets. The images included show examples of these results. However, training time remains an issue, likely due to an excess of filters in the convolutional layers causing potential overfitting. Finding the right balance is an ongoing challenge. Although I’ve searched extensively for good datasets, I'm still exploring options for additional resources.
           </p>
         </section>
 
-        {/* Next Steps */}
+        {/* Future Goals */}
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">Next Steps</h2>
           <p className="text-lg leading-relaxed">
-            Going forward, I plan to further optimize the model by experimenting with more advanced architectures like self-attention transformers. Additionally, I&aposll be incorporating more diverse datasets to make the models more robust in real-world applications. Stay tuned for updates!
+            Moving forward, I aim to develop a demo that runs on a website where users can upload their own images of animals, emotions, or butterflies and test the accuracy of the models. This will make the project interactive and provide further insights into how well the models perform in real-world scenarios.
           </p>
         </section>
 
-        {/* Conclusion */}
+        {/* CNN Code Section */}
         <section className="mb-12">
-          <p className="text-lg leading-relaxed italic">
-            Note: This is an ongoing project, and the article will be updated as I make further progress. Check back soon for new developments!
-          </p>
+          <h2 className="text-3xl font-semibold mb-4">CNN Code Implementation</h2>
+          <pre className="bg-gray-100 p-4 rounded-lg overflow-auto max-h-60">
+            <code>
+{`import torch
+import torch.nn as nn
+import torch.optim as optim
+import random
+import matplotlib.pyplot as plt
+
+class CNNModel(nn.Module):
+    def __init__(self, num_classes):
+        super(CNNModel, self).__init__()
+        self.conv1 = nn.Conv2d(3, 16, 3, 1, 1)
+        self.conv2 = nn.Conv2d(16, 32, 3, 1, 1)
+        self.conv3 = nn.Conv2d(32, 64, 3, 1, 1)
+        self.pool1 = nn.AvgPool2d(2,2)
+        self.pool2 = nn.AdaptiveAvgPool2d((32, 32))
+        self.relu = nn.ReLU()
+        self.fc1 = None
+        self.fc2 = None
+        self.num_classes = num_classes
+
+    def forward(self, x):
+        if x.dim() == 3:  
+            x = x.unsqueeze(0)
+        x = self.pool1(self.relu(self.conv1(x)))
+        x = self.pool1(self.relu(self.conv2(x)))
+        x = self.pool2(self.relu(self.conv3(x)))
+        if self.fc1 is None:
+            self._set_fc_layers(x)
+        x = x.view(x.size(0), -1)
+        x = self.relu(self.fc1(x))
+        x = self.fc2(x)
+        return x
+
+    def _set_fc_layers(self, x):
+        num_features = x.size(1) * x.size(2) * x.size(3)
+        self.fc1 = nn.Linear(num_features, 2048).to(x.device)
+        self.fc2 = nn.Linear(2048, self.num_classes).to(x.device)
+`}
+            </code>
+          </pre>
         </section>
       </article>
     </div>
