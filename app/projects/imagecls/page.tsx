@@ -46,7 +46,7 @@ export default function ImageClassificationProgress() {
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">Current Results</h2>
           <p className="text-lg leading-relaxed">
-            The models have shown promising results so far, particularly in the butterfly species dataset. While the cat vs. dog and human emotion models are performing reasonably well, there is still room for improvement, especially in edge cases where the images are not clear. I'm also working on improving the interpretability of the models, possibly using LIME or SHAP to explain their predictions.
+            The models have shown promising results so far, particularly in the butterfly species dataset. While the cat vs. dog and human emotion models are performing reasonably well, there is still room for improvement, especially in edge cases where the images are not clear. I&aposm also working on improving the interpretability of the models, possibly using LIME or SHAP to explain their predictions.
           </p>
 
           {/* Placeholder for another image */}
@@ -59,7 +59,7 @@ export default function ImageClassificationProgress() {
         <section className="mb-8">
           <h2 className="text-3xl font-semibold mb-4">Next Steps</h2>
           <p className="text-lg leading-relaxed">
-            Going forward, I plan to further optimize the model by experimenting with more advanced architectures like self-attention transformers. Additionally, I'll be incorporating more diverse datasets to make the models more robust in real-world applications. Stay tuned for updates!
+            Going forward, I plan to further optimize the model by experimenting with more advanced architectures like self-attention transformers. Additionally, I&aposll be incorporating more diverse datasets to make the models more robust in real-world applications. Stay tuned for updates!
           </p>
         </section>
 
