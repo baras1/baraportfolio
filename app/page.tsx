@@ -33,7 +33,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <Image
-                src="/professional_work_image.jpg" // replace with actual image path
+                src="experiences.png" // replace with actual image path
                 alt="Professional Work"
                 width={300}
                 height={200}
@@ -50,7 +50,7 @@ export default function Home() {
 
             <div className="bg-white p-6 rounded-lg shadow-lg">
               <Image
-                src="/projects_image.jpg" // replace with actual image path
+                src="projects.png" // replace with actual image path
                 alt="Projects"
                 width={300}
                 height={200}
